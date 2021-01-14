@@ -1,0 +1,15 @@
+{
+    "name": "dfm automation kaz",
+    "version": "0.0.0.1",
+    "description": "Select All Checkboxes",
+    "manifest_version": 2,
+    "permissions": [
+        "activeTab"
+    ],
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "128": "images/checkbox.png"
+    }
+}
