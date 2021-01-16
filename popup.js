@@ -5,7 +5,12 @@ checkSelector.onclick=function () {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         chrome.tabs.executeScript(
             tabs[0].id,
-            { code: 'const skillsCheckBox = document.querySelectorAll("#possible-skills li input");skillsCheckBox.forEach((i)=>{i.checked=true;})' });
+            { file: 'checkbox.js' });
     });
-    checkSelector.textContent="hope it worked!";
+    chrome.runtime.onMessage.addListener((req, sender, sendRes) => {
+        if (req.checkboxLen>0) {
+            checkSelector.textContent=`${req.checkboxLen} checkboxes found!`;
+        }
+    })
+    // checkSelector.textContent="hope it worked!";
 };
